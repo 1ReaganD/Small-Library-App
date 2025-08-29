@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holy Grail Mockup</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="divFirst">
+      <form id="myForm">
+        <label for="titleOfBook">Title of the Book : </label>
+        <input type="text" id="titleOfBook">
+        <label for="authorOfBook">Author of the Book : </label>
+        <input type="text" id="authorOfBook">
+        <label for="pagesOfBook">Pages of the Book : </label>
+        <input type="number" id="pagesOfBook">
+        <br><br><br>
+        <p>Choose one Option</p>
+        <input type="radio" name="readBook" value="Read" id="Read" >
+        <label for="Read">Read </label><br><br>
+        <input type="radio" name="readBook" value="Not Read" id="NotRead" >
+        <label for="NotRead">Not Read </label>
+        <button id="addTheBook" type="submit">Add the Book</button>
+      </form>
+    </div>
+    <div class="container-inner">
+      <div class="card">
+        <div class="section1">
+          <p><span class="headings">Title : </span><span class="answers-heading"></span></p>
+        </div>
+        <div class="section2">
+          <p><span class="headings">Author : </span><span class="answers-author"></span></p>
+        </div>
+        <div class="section3">
+          <p><span class="headings">Pages : </span><span class="answers-pages"></span></p>
+        </div>
+        <div class="section4">
+          <p><span class="headings">Read : </span><span class="answers-read"></span></p>
+        </div>
+        <div class="section5">
+          <button class="removeBook">Remove Book</button>
+          <button class="tooglereadstatus">Toogle Read Status</button>
+        </div>
+      </div>
+    </div>
+    <div class="btn">
+      <button id="buttonShowBooks">Show All Books</button>
+      <button id="buttonAddNewBook">New Book</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

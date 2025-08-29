@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(Assests/background2.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    margin: 0;
+    height: 100vh;
+    /* padding-top: 30px; */
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+.container-inner{
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    height: 450px;
+    width: 450px;
+    /* border: 1px solid black; */
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 black;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.headings{
+    font-size: 34px;
+    font-weight: bold;
+}
+[class*="answer"]{
+    font-size: 24px;
+}
+[class*="section"]{
+    border-bottom:2px solid black ;
+    text-align: center;
+}
+.section5{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: end;
+    border-bottom: 0;
+}
+.btn{
+    display: grid;
+    padding-top: 80px;
+    justify-content: center;
+    align-content: start;
+}
+button{
+    background-color: rgb(132, 132, 189);
+    color: white;
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-shadow: 0 0 10px 0 black;
+    margin: 20px;
+}
+form{
+    padding: 20px;
+}
+[type*="text"]{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+}
+#pagesOfBook{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50px;
+}
+#addTheBook{
+    margin-top: 20px;
+}
+label{
+    font-size: 24px;
+    font-weight: bold;
+}
+.divFirst{
+    visibility: hidden;
+}
+.divFirstVisible{
+    background-image: linear-gradient(to left, red, yellow);
+}
