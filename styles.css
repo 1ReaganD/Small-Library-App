@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-image: url(Assests/background2.webp);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
 }
