@@ -18,16 +18,30 @@ const selectedRadio = document.querySelector('input[name="readBook"]:checked');
 const myForm = document.querySelector("#myForm");
 
 //Book constructor
-function Book(id, title, author, pages, read) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    return `${this.title} by ${this.author} , ${this.pages} pages, ${this.read}`;
+// function Book(id, title, author, pages, read) {
+//   this.id = id;
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+// }
+
+
+//Using class instead constructor
+class Book {
+  constructor(id, title, author, pages, read) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
+
 }
+
+
+
+
 
 function addBookToLibrary(title, author, pages, read) {
   let UnquieID = window.crypto.randomUUID();
@@ -61,17 +75,17 @@ function showBooks() {
         buttontooglereadstatus.setAttribute("data-book-id", ObjectValues.id);
         buttontooglereadstatus.textContent = "Toogle Read Status";
         div1.appendChild(buttontooglereadstatus);
-        buttontooglereadstatus.addEventListener("click", function(){
+        buttontooglereadstatus.addEventListener("click", function () {
           const changeReadStatus = buttontooglereadstatus.dataset.bookId;
-          if(ObjectValues.read == "Not Read"){
-            const toBeChangedBook = StoredBooks.find(function(item){
+          if (ObjectValues.read == "Not Read") {
+            const toBeChangedBook = StoredBooks.find(function (item) {
               return item.id === changeReadStatus;
             });
             toBeChangedBook.read = "Read";
             console.log("Toogle change");
             showBooks();
-          }else{
-            const toBeChangedBook = StoredBooks.find(function(item){
+          } else {
+            const toBeChangedBook = StoredBooks.find(function (item) {
               return item.id === changeReadStatus;
             });
             toBeChangedBook.read = "Not Read"
@@ -81,8 +95,8 @@ function showBooks() {
 
         buttonRemoveBook.addEventListener("click", function () {
           const deleteBookId = buttonRemoveBook.dataset.bookId;
-          let NewStoredBooks = StoredBooks.filter(function (book){
-             return book.id != deleteBookId;
+          let NewStoredBooks = StoredBooks.filter(function (book) {
+            return book.id != deleteBookId;
           })
           StoredBooks = [];
           StoredBooks = NewStoredBooks;
