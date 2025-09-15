@@ -14,11 +14,12 @@
     <div class="divFirst">
       <form id="myForm">
         <label for="titleOfBook">Title of the Book : </label>
-        <input type="text" id="titleOfBook">
+        <input type="text" id="titleOfBook" minlength="5" required>
         <label for="authorOfBook">Author of the Book : </label>
-        <input type="text" id="authorOfBook">
+        <input type="text" id="authorOfBook" minlength="3" maxlength="25" required>
+        <span class="error"></span>
         <label for="pagesOfBook">Pages of the Book : </label>
-        <input type="number" id="pagesOfBook">
+        <input type="number" id="pagesOfBook" min="50" max="500">
         <br><br><br>
         <p>Choose one Option</p>
         <input type="radio" name="readBook" value="Read" id="Read" >
