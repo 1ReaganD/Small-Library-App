@@ -14,7 +14,7 @@ const titleOfBook = document.querySelector("#titleOfBook");
 const authorOfBook = document.querySelector("#authorOfBook");
 const pagesOfBook = document.querySelector("#pagesOfBook");
 const selectedRadio = document.querySelector('input[name="readBook"]:checked');
-
+const authorError = document.querySelector("#authorOfBook + span.error");
 const myForm = document.querySelector("#myForm");
 
 //Book constructor
@@ -135,8 +135,14 @@ buttonAddBook.addEventListener("click", function () {
 
 myForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const titleOfBookvalue = titleOfBook.value;
+  
+  if (!authorOfBook.validity.valid) {
+    showError();
+    authorOfBook.focus();
+    return;
+  }
   const authorOfBookvalue = authorOfBook.value;
+  const titleOfBookvalue = titleOfBook.value;
   const pagesOfBookvalue = pagesOfBook.value;
   const selectedRadio = document.querySelector('input[name="readBook"]:checked');
   if (selectedRadio) {
@@ -149,4 +155,33 @@ myForm.addEventListener("submit", function (event) {
   console.log(StoredBooks);
 });
 
+//validation for title of the book
+titleOfBook.addEventListener("input", () => {
+  if (titleOfBook.validity.tooShort) {
+    titleOfBook.setCustomValidity("A title should have 5 or more than five words");
+  }else{
+    titleOfBook.setCustomValidity("");
+  }
+});
 
+authorOfBook.addEventListener("input", () => {
+  if (authorOfBook.validity.valid) {
+    authorError.textContent = ""; 
+    authorError.classList.remove("active");
+  }else{
+    showError ();
+  }
+})
+
+
+function showError () {
+  authorError.textContent = "";
+  if (authorOfBook.validity.tooShort) {
+    authorError.textContent = "Hey! you reader is this really name of the author";
+  } else if (authorOfBook.validity.valueMissing) {
+    authorError.textContent = "Fill out twin";
+  } else if (authorOfBook.validity.tooLong){
+    authorError.textContent = `Come on bro ${authorError.value.length} letters`;
+  }
+    authorError.classList.add("error", "active");
+}
